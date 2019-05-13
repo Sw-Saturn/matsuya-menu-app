@@ -1,6 +1,6 @@
 # matsuya_menu_app
 
-A new Flutter project.
+Flutter使って見たかったのと松屋に行きたいので[Matsuya-Web-API](https://github.com/makotia/Matsuya-Web-API)を使ってメニューを表示させようの会
 
 ## Getting Started
 
