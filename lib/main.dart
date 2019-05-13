@@ -1,9 +1,7 @@
-import 'dart:async' as prefix0;
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http; //httpリクエスト用
-import 'dart:async'; //非同期処理用
 import 'dart:convert'; //httpレスポンスをJSON形式に変換用
 
 void main() => runApp(MyApp());
@@ -43,22 +41,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Map menu_data;
   List use_data;
-  Uri uri = Uri.parse("https://matsuya.makotia.me/v4/search");
-
-
-  Future getData() async{
-    final response = await http.get(uri);
-    menu_data = json.decode(response.body);
-    debugPrint(menu_data.keys.toString());
-    setState(() {
-      use_data = menu_data[''];
-    });
-  }
-
-  @override
-  void initState(){
-    super.initState();
-    getData();
+  const path="https://matsuya.makotia.me/v4/search";
+  try {
+    final jsonString = await
   }
 
 
