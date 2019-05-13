@@ -30,6 +30,42 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State {
   var menus = new List<Menu>();
+  final List<Tab> tabs = <Tab>[
+    Tab(
+      text: '朝メニュー',
+    ),
+    Tab(
+      text: "プレミアム牛めし",
+    ),
+    Tab(
+      text: "牛めし",
+    ),
+    Tab(
+      text: "カレー",
+    ),
+    Tab(
+      text: "ドリンク",
+    ),
+    Tab(
+      text: "丼",
+    ),
+    Tab(
+      text: "サイドメニュー",
+    ),
+    Tab(
+      text: "小鉢",
+    ),
+    Tab(
+      text: "定食",
+    ),
+    Tab(
+      text: "トッピング",
+    ),
+    Tab(
+      text: "うどん",
+    ),
+  ];
+  TabController = _tabController;
 
   _getMenu(){
     api.getMenu().then((response){
@@ -43,6 +79,7 @@ class _MyHomePageState extends State {
   initState(){
     super.initState();
     _getMenu();
+    _tabController = TabController(length: tabs.length, vsync: this);
   }
 
   @override
@@ -69,6 +106,10 @@ class _MyHomePageState extends State {
                       new Text(menus[index].description,
                         style: new TextStyle(fontSize: 16.0,
                             fontWeight: FontWeight.normal),
+                      ),
+                      new Text(menus[index].type,
+                      style: new TextStyle(fontSize: 12.0,
+                          fontWeight: FontWeight.normal),
                       ),
                     ],
                   ),
