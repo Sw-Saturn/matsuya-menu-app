@@ -65,7 +65,6 @@ class _MyHomePageState extends State {
       text: "うどん",
     ),
   ];
-  TabController = _tabController;
 
   _getMenu(){
     api.getMenu().then((response){
@@ -79,7 +78,6 @@ class _MyHomePageState extends State {
   initState(){
     super.initState();
     _getMenu();
-    _tabController = TabController(length: tabs.length, vsync: this);
   }
 
   @override
@@ -87,6 +85,10 @@ class _MyHomePageState extends State {
     return Scaffold(
       appBar: AppBar(
         title: Text("Matsuya Menu"),
+        bottom: TabBar(
+          isScrollable: true,
+          tabs: tabs,
+        ),
       ),
       body: ListView.builder(
         itemCount: menus.length,
